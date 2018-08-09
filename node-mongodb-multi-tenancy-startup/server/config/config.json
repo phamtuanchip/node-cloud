@@ -9,7 +9,7 @@
     },
 
   "urls": {
-    "clientLogin": "http://www.vizob.com"
+    "clientLogin": "http://vizob1.com"
   },
   "dbs": {
     "client_base": "mongodb://localhost/",
