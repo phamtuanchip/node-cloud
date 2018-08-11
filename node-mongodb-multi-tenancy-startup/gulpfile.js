@@ -240,7 +240,7 @@ gulp.task('styles-dev', function() {
     .pipe(gulp.dest(filePath.build.dest))
     .on('error', handleError)
     .pipe(notify({
-        message: 'Styles task complete'
+      //  message: 'Styles task complete'
     }))
     .pipe(connect.reload());
 });
@@ -418,3 +418,4 @@ gulp.task('build', function(callback) {
 gulp.task('default', ['build-dev']);
 gulp.task('test', ['build-test']);
 gulp.task('prod', ['build-prod']);
+
