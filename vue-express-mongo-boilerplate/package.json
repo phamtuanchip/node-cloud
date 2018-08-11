@@ -19,10 +19,7 @@
     "ci": "cross-env NODE_ENV=test nodemon --exec \"mocha --require babel-core/register --reporter dot --watch tests/unit\" tests/unit",
     "lint": "eslint --ext=.js,.vue client server",
     "lint:fix": "eslint --fix --ext=.js,.vue client server",
-    "snyk-protect": "snyk protect",
-    "typings": "typings install",
-    "prepublish": "npm run snyk-protect",
-    "prepare": "npm run snyk-protect"
+    "typings": "typings install"
   },
   "repository": {
     "type": "git",
@@ -99,7 +96,7 @@
     "passport-localapikey-update": "0.5.0",
     "passport-twitter": "1.0.4",
     "pretty-bytes": "4.0.2",
-    "pug": "2.0.0",
+    "pug": "2.0.1",
     "require-webpack-compat": "3.0.0",
     "serve-favicon": "2.4.5",
     "slug": "0.9.1",
@@ -175,5 +172,5 @@
     "webpack-hot-middleware": "2.18.0",
     "webpack-merge": "4.1.0"
   },
-  "snyk": true
+  "snyk": false
 }

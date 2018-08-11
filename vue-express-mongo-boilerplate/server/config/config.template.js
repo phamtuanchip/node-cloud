@@ -30,7 +30,7 @@ module.exports = {
 
 	// Database (Mongo) settings
 	db: {
-		// uri: process.env.MONGO_URI || "mongodb://localhost/vemapp",
+		uri: process.env.MONGO_URI || "mongodb://localhost:27017/vemapp",
 		options: {
 			user: process.env.MONGO_USERNAME || "",
 			pass: process.env.MONGO_PASSWORD || ""
