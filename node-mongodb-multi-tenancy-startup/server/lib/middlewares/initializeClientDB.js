@@ -2,7 +2,7 @@
 var config = require('../../config/config.json'),
   	mongoose = require('mongoose'),
     logger  = require('../../config/logger');
-
+	 
 global.MongooseConnection = [];
 global.ServiceRegestry = [];
 
@@ -16,7 +16,7 @@ module.exports = function(req, res, next) {
 		 global.ActiveClientMongooseConnection = ClientConnection;
 	} else {
 		console.log('create new mongo connection for:', req.subdomains[0]);
-		ClientConnection =  mongoose.createConnection(config.dbs.client_base + req.subdomains[0] + config.dbs.client_db_sufix);
+		ClientConnection =  mongoose.createConnection(config.dbs.client_base + req.subdomains[0] + config.dbs.client_db_sufix, config.dbs.client_option );
 		global.MongooseConnection[req.subdomains[0]] = ClientConnection;
 
 		 //Initialize Modules for connection

@@ -22,7 +22,7 @@ var corsOptions = {
 };
 
 
-server.set('port', (process.env.PORT || 80));
+server.set('port', (process.env.PORT || 8080));
 
 
 

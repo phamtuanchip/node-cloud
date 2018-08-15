@@ -12,9 +12,16 @@
     "clientLogin": "http://vizob1.com"
   },
   "dbs": {
-    "client_base": "mongodb://localhost/",
+    "client_base": "mongodb://vod.mn.com.vn:27017/",
+    "client_option" : { 
+      "db": { "native_parser": true },
+      "server": { "poolSize": 5 },       
+      "user": "dbdnmin",
+      "pass": "123456789",
+      "auth":{"authdb":"admin"}     
+    },
     "client_db_sufix": "_vizob_com",
-    "vizob_com_crm": "mongodb://localhost/vizob_com_crm"
+    "vizob_com_crm": "mongodb://vod.mn.com.vn:27017/vizob_com_crm"    
   },
   "auth": {
     "tokenExpiresIn": "7d",
