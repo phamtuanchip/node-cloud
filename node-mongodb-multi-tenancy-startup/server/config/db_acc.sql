@@ -72,23 +72,7 @@ db.updateUser(
    } 
 )
 
-
-
-	db.createUser
-(
-	{
-user:
-"Mohan",
-
-pwd:
-"password",
-
-roles:
-[
-		{
-			role: "read" , db:"Marketing"},
-
-			role: "readWrite" , db:"Sales"}
-		}
-		      ]
-	}
+//change schema version compatible with mongoose
+var schema = db.system.version.findOne({"_id" : "authSchema"})
+schema.currentVersion = 3
+db.system.version.save(schema)
