@@ -30,6 +30,7 @@ exports.load = async(function* (req, res, next, _id) {
 
 exports.create = async(function* (req, res) {
   const user = new User(req.body);
+  debugger
   user.provider = 'local';
   try {
     yield user.save();
