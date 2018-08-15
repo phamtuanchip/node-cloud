@@ -16,7 +16,7 @@ function RESTService($http, CONSTANTS) {
 	function post(url, data){
 		console.log(url, data)
 		if(url.indexOf('signup') >-1 || url.indexOf('Login') >-1){
-			if(url.indexOf('Login') >-1) data.subdomains = ['apps.bos.edu.vn'];
+			if(url.indexOf('Login') >-1) data.subdomains = [data.username.split("@")[1]];
             return $http.post('http://api.bos.edu.vn/' + url, data);
 		}else
    	 		return $http.post(API_BASE + url, data);
