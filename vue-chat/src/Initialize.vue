@@ -15,9 +15,10 @@
         this.$store.dispatch('conversations/seed')
       },
 
-      get () {
-        // todo
-      }
+       get () {
+    this.$store.dispatch('users/get')
+    this.$store.dispatch('conversations/get')
+  }
     }
   }
 </script>

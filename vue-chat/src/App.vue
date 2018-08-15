@@ -1,20 +1,35 @@
 <template>
-   <div>
+  <div>
     <Initialize />
-  </div> 
+    <ConversationContainer 
+      v-for="id in convoIds"
+      :conversation="conversations[id]"
+      :id="id"
+      :key="id"
+    />
+  </div>  
 </template>
 
 <script>
-import Initialize from "./Initialize.vue";
+import Initialize from './Initialize.vue'
+import ConversationContainer from './ConversationContainer.vue'
+
+import { mapState } from 'vuex'
+
 export default {
+  name: 'app',
   components: {
-    Initialize
+    Initialize,
+    ConversationContainer
   },
-  name: "app",
-  created() {
-    console.log(this.$store.state.db);
-  }
-};
+
+  computed: {
+    ...mapState({
+      conversations: state => state.conversations.all,
+      convoIds: state => state.conversations.allIds
+    })
+  },
+}
 </script>
 
 <style>

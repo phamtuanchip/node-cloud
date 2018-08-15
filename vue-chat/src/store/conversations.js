@@ -8,8 +8,15 @@ const state = {
 }
 
 const mutations = {
-  
-}
+    SET_CONVERSATION (state, { conversation }) {
+      const data = conversation.data()
+      state.all = {
+        ...state.all, 
+        [conversation.id]: { users: data.users, created: data.created, messages: [] }
+      } 
+      state.allIds.push(conversation.id)
+    }
+  }
 
 const actions = { 
   seed ({ rootState }) {
