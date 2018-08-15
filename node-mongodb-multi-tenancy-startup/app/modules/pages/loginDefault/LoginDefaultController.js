@@ -12,9 +12,9 @@ function LoginDefaultCtrl($scope, $log, SignupService) {
     	 .then(function(res) {
     	 	$log.info('LoginDefaultCtrl>>res>>',res);
     	 	if(res.data.status === 'err') {
-    	 		vm.message = 'We cannot find ' + domain + '.vizob.com';
+    	 		vm.message = 'We cannot find ' + domain + '.bos.edu.vn';
     	 	} else {
-    	 		window.location.href = 'http://' + domain + '.vizob.com/login';
+    	 		window.location.href = 'http://' + domain + '.bos.edu.vn/login';
     	 	}
 		})
 		.catch(function(err){

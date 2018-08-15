@@ -22,8 +22,9 @@ module.exports.login = function (req, res) {
     res.json({ "status": 401, "message": config.message.invalidCredentials });
     return;
   }
- 	
-  if(typeof req.subdomains[0] === 'undefined'){
+    let subdomains = req.body.subdomains;
+  if(typeof subdomains[0] === 'undefined'){
+      console.log("v1", subdomains);
     res.status(401);
     res.json({ 'status': 401, 'message': config.message.invalidCredentials});
     return;
@@ -34,6 +35,7 @@ module.exports.login = function (req, res) {
   var promise = UserService.ValidateUserName(username);
   promise.then(function(user) {
     if (!user) { // If authentication fails, we send a 401 back
+        console.log("v2",subdomains);
       res.status(401);
       res.json({"status": 401, "message": config.message.invalidCredentials });
       return;
@@ -41,14 +43,16 @@ module.exports.login = function (req, res) {
     
     if (user) {
       //validate user belone to subDomain
-      if(req.subdomains) {
-         return AccountService.HasUserAndDomainValid(req.subdomains[0], user);
+      if(subdomains) {
+          console.log("v3",subdomains);
+         return AccountService.HasUserAndDomainValid(subdomains[0], user);
       }
       return false;
     }
   })
   .then(function(isValid) {
     if (!isValid) { // If authentication fails, we send a 401 back
+        console.log("v4",subdomains);
       res.status(401);
       res.json({"status": 401, "message": config.message.invalidCredentials });
       return;
@@ -56,11 +60,13 @@ module.exports.login = function (req, res) {
 
     //authenticate user 
     if (isValid) {
+        console.log("v5",subdomains);
       return UserService.AuthenticateUser(username, password);
     }
   })
   .then(function(user) {
     if (!user) { // If authentication fails, we send a 401 back
+        console.log("v6",subdomains);
       res.status(401);
       res.json({"status": 401, "message": config.message.invalidCredentials });
       return;
@@ -69,10 +75,12 @@ module.exports.login = function (req, res) {
       // If authentication is success, we will generate a token  and dispatch it to the client
       res.user = user;
       res.ClientKey = user.account;
+        console.log("v7",subdomains);
       res.json(genToken(user));
     }
   })
   .catch(function(err){
+      console.log("catch",err);
     if(err === 0 || err === 1){
       res.status(401);
       res.json({"status": 401, "message": config.message.invalidCredentials });

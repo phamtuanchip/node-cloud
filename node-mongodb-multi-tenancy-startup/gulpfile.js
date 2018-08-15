@@ -122,14 +122,14 @@ gulp.task('server', function() {
     connect.server({
         root: filePath.build.dest,
         fallback: filePath.build.dest + '/index.html',
-        port: 80,
+        port: 3000,
         livereload: true
          ,
           middleware: function(connect, o) {
               return [ (function() {
                 var url = require('url');
                 var proxy = require('proxy-middleware');
-                var options = url.parse('http://localhost:3000/'); // path to your dev API
+                var options = url.parse('127.0.0.1:3000'); // path to your dev API
                  options.route = '/api';
                  return proxy(options);
               })() ];

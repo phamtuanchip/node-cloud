@@ -39,7 +39,7 @@
 					<h3>Get a URL</h3>
 					<p>This is the address that you and your coworkers will use to sign in to Vizob CRM</p>
                 	<label>Your Vizob URL <span>(Letters, numbers, and dashes only)</span></label>
-                    <input type="text" ng-model="CreateCtrl.user.domain" placeholder="http://{{CreateCtrl.user.domain}}.vizob.com" class="form-control" required>
+                    <input type="text" ng-model="CreateCtrl.user.domain" placeholder="http://{{CreateCtrl.user.domain}}.bos.edu.vn" class="form-control" required>
                     <p ng-if="CreateCtrl.current_step_message" ng-bind="CreateCtrl.current_step_message"></p>
 					<span class="urls_list" ng-repeat="item in CreateCtrl.urls_checked" ng-class="{'text-danger' : item.status=== 'taken', 'text-primary' : item.status=== 'available'}"> {{item.url}}</span>
               	</div>

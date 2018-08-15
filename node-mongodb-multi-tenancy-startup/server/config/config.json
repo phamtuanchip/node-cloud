@@ -3,7 +3,7 @@
     "NODE_ENV": "development"
   },
   "domain": {
-      "vizob":"http://www.vizob.com",
+      "vizob":"http://www.bos.edu.vn",
       "SYSTEM_DOMAINS" : ["vizob", "www", "http", "https", "tcp", "admin", "app", "apps"],
       "BLACK_LIST_DOMAINS" : []
     },
