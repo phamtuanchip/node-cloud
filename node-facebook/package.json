@@ -1,0 +1,14 @@
+{
+  "name": "mantis-facebook",
+  "version": "1.0.0",
+  "description": "intergration nodejs with facebook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "facebook-nodejs-business-sdk": "^3.1.0"
+  }
+}
