@@ -5,9 +5,8 @@
   
       <div class="row col-md-6 offset-md-3">
   
-        <create-todo></create-todo>
-  
-        <list-todo></list-todo>
+        <Login></Login>
+        <Create></Create>
   
       </div>
   
@@ -18,6 +17,8 @@
 
 
 <script>
+  import Login from "@/public/src/components/cloud/Login.vue"
+  import Create from "@/public/src/components/cloud/Create.vue"
   import CreateTodo from './CreateTodo.vue';
   
   import ListTodo from './ListTodo.vue';
