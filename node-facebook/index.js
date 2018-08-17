@@ -3,7 +3,9 @@ const bizSdk = require('facebook-nodejs-business-sdk');
 const accessToken = 'EAAEc6EFwM5cBACEWWQNiycwpB7CtVsuWgJjr9DdrKmtM6ZAvgPhw8DnWvr2J1XzwMxb0ZCSHozOBmYPYxnnZCmZAH3crZBLdozVabWwwOVZAjZA1uHsXw1zzeMI98E6JZA6gFZBCl7PH00tSVCJHlqqm6X7AntnMZALZC2TTf7ZB8JmgygZDZD';
 const accountId = '313258832573335';
 
+
 const FacebookAdsApi = bizSdk.FacebookAdsApi.init(accessToken);
+console.log(bizSdk)
 const AdAccount = bizSdk.AdAccount;
 const Campaign = bizSdk.Campaign;
 
