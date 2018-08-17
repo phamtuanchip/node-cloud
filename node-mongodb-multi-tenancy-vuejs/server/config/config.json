@@ -3,18 +3,25 @@
     "NODE_ENV": "development"
   },
   "domain": {
-      "vizob":"http://bos.edu.vn",
-      "SYSTEM_DOMAINS" : ["config", "www", "http", "https", "tcp", "admin", "app", "apps"],
-      "BLACK_LIST_DOMAINS" : []
-    },
+    "vizob":"http://www.bos.edu.vn",
+    "SYSTEM_DOMAINS" : ["vizob", "www", "http", "https", "tcp", "admin", "app", "apps"],
+    "BLACK_LIST_DOMAINS" : []
+  },
 
   "urls": {
-    "clientLogin": "http://bos.edu.vn"
+    "clientLogin": "http://vizob1.com"
   },
   "dbs": {
-    "client_base": "mongodb://localhost:27017/",
+    "client_base": "mongodb://vod.mn.com.vn:27017/",
+    "client_option" : {
+      "db": { "native_parser": true },
+      "server": { "poolSize": 5 },
+      "user": "dbadmin",
+      "pass": "123456789",
+      "auth":{"authdb":"admin"}
+    },
     "client_db_sufix": "_vizob_com",
-    "vizob_com_crm": "mongodb://localhost:27017/vizob_com_crm"
+    "vizob_com_crm": "mongodb://vod.mn.com.vn:27017/vizob_com_crm"
   },
   "auth": {
     "tokenExpiresIn": "7d",
@@ -32,11 +39,11 @@
     "type" : "dev",
     "logDirectory": "logs",
     "streams" : {
-        "level":"info",
-        "type": "rotating-file",
-        "path": "server.log",
-        "period": "1d",
-        "count": 2
+      "level":"info",
+      "type": "rotating-file",
+      "path": "server.log",
+      "period": "1d",
+      "count": 2
     }
   }
 }

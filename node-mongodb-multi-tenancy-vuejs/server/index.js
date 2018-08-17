@@ -22,15 +22,17 @@ var corsOptions = {
 };
 
 
-server.set('port', (process.env.PORT || 8080));
+server.set('port', (process.env.PORT || 4000));
 
 
 
 
 //server.use(cors(corsOptionsDelegate));
 server.use(morgan(config.logging.type));
-server.use(express.static('./../dist'));
+server.use(express.static('./../public'));
+//server.use(express.static(path.join(__dirname, '/public')))
 server.use(bodyParser.json()); // for parsing application/json
+server.use(bodyParser.urlencoded({extended: true}))
 //server.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 //server.use(multer()); // for parsing multipart/form-data
 
@@ -39,6 +41,11 @@ server.use(bodyParser.json()); // for parsing application/json
 // It's due to we are using alots of listeners e.g. server.all('/*', cors());, server.all('/*', cors(require('./lib/middlewares/validateDomain')));
 // We need to merge somge of those listners into one listner
 // Suggetion : merge all '/api/*' into One, cors into validateDomain 
+
+var todoRoutes = require('./lib/todo/Routes')
+
+//  Use routes defined in Route.js and prefix with todo
+server.all('/todo', todoRoutes)
 
 server.options('*', cors()); 
 server.all('/*', cors());
@@ -60,20 +67,37 @@ server.all('/api/*', require('./lib/middlewares/initializeClientDB'));
 // are sure that authentication is not needed
 server.all('/api/*', [require('./lib/middlewares/validateRequest')]);
 
+server.use(function (req, res, next) {
+  // Website you wish to allow to connect
+  //res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4000')
 
+  // Request methods you wish to allow
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE')
+
+  // Request headers you wish to allow
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
+
+  // Pass to next layer of middleware
+  next()
+})
 
 //Initilize API's
 var api = require('./lib/api');
 api.initialize(server);
 
 server.all('/*', function(req, res, next) {
-    var fallbackPage = '/loader.html';
+    var fallbackPage = '/index.html';
     console.log('req.user>.', req.user);
     if(req.user)
         fallbackPage = '/loader.html';
 
-    var rootPath = path.join(__dirname, './../dist/');
-    res.sendFile('/', { 
+    // var rootPath = path.join(__dirname, './../dist/');
+    // res.sendFile('/', {
+    //     root: rootPath,
+    //     fallback :  rootPath  + fallbackPage //'/index.html'
+    //   });
+    var rootPath = path.join(__dirname, './../public/');
+    res.sendFile('/', {
         root: rootPath,
         fallback :  rootPath  + fallbackPage //'/index.html'
       });
