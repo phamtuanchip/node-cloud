@@ -31,7 +31,7 @@ var bookSchema = new mongoose.Schema({
   content: { type:String, es_indexed:true }
 });
 
-mongoose.connect("mongo://localhost:27017/mongoosastic");
+mongoose.connect("mongodb://localhost:27017/mongoosastic?authSource=admin");
 bookSchema.plugin(mongoosastic,{
   hosts: [ {  
     host:"localhost",
@@ -39,7 +39,16 @@ bookSchema.plugin(mongoosastic,{
     protocol: "http",
     auth: ":"
   //  ,curlDebug: true
-  } ]
+  } ],
+  customProperties: {
+    description: {
+      type: 'text',
+    },
+    content: {
+      type: 'text',
+    } 
+  }
+
 });
 
 var Book = mongoose.model("Book", bookSchema);
