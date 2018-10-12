@@ -1,7 +1,7 @@
 {
-  "db": "localhost/oauth-example-test",
+  "db": "localhost:27017/oauth-example-test",
   "emailer": {
-    "from": "support@example.com"
+    "from": "support@mantis.edu.vn"
   },
-  "rootURL": "http://localhost:3001"
+  "rootURL": "http://localhost:3005"
 }

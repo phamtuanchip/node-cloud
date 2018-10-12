@@ -8,11 +8,13 @@
   },
   "dependencies": {
     "bcrypt": "^0.7.7",
+    "bson": "^3.0.2",
     "express": "^3.4.8",
     "jade": "*",
     "mongoose": "^3.8.8",
     "node-gyp": "^3.8.0",
-    "node-oauth2-server": "^2.0.2"
+    "node-oauth2-server": "^2.0.2",
+    "oauth2-server": "^3.0.1"
   },
   "devDependencies": {
     "supertest": "^0.9.0",
