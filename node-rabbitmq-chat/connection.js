@@ -10,15 +10,15 @@ var amqp = require('amqplib/callback_api')
 // }
 opts = {}
 
-amqp.connect('amqp://mszsagby:FYpHZnrI89y3W7b-oOYGVXTl4XXYXiIc@mustang.rmq.cloudamqp.com/mszsagby',
-opts, function(err, conn) {
-    if (err) {
-      throw new Error(err)
-    }
+// amqp.connect('amqp://mszsagby:FYpHZnrI89y3W7b-oOYGVXTl4XXYXiIc@mustang.rmq.cloudamqp.com/mszsagby',
+// opts, function(err, conn) {
+//     if (err) {
+//       throw new Error(err)
+//     }
 
-    console.log(conn)
-    conn.close()
-})
+//     console.log(conn)
+//     conn.close()
+// })
 
 module.exports = function(cb) {
   amqp.connect('amqp://mszsagby:FYpHZnrI89y3W7b-oOYGVXTl4XXYXiIc@mustang.rmq.cloudamqp.com/mszsagby',
