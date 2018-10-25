@@ -1,0 +1,19 @@
+{
+  "name": "rebbitmq-local",
+  "version": "1.0.0",
+  "description": "loca test for rabbitmq",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rabbitmq",
+    "test",
+    "2"
+  ],
+  "author": "pham tuan",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.5.2"
+  }
+}
