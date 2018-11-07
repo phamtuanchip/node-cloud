@@ -13,7 +13,7 @@ func failOnError(err error, msg string) {
 }
 
 func main() {
-	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
+	conn, err := amqp.Dial("amqp://mszsagby:FYpHZnrI89y3W7b-oOYGVXTl4XXYXiIc@mustang.rmq.cloudamqp.com/mszsagby")
 	failOnError(err, "Failed to connect to RabbitMQ")
 	defer conn.Close()
 
@@ -22,12 +22,12 @@ func main() {
 	defer ch.Close()
 
 	q, err := ch.QueueDeclare(
-		"hello", // name
-		false,   // durable
-		false,   // delete when unused
-		false,   // exclusive
-		false,   // no-wait
-		nil,     // arguments
+		"MANTIS_MQ_MESSAGE", // name
+		false,               // durable
+		false,               // delete when unused
+		false,               // exclusive
+		false,               // no-wait
+		nil,                 // arguments
 	)
 	failOnError(err, "Failed to declare a queue")
 
